@@ -107,12 +107,13 @@ int main() {
 
     // DISPLAY SERVICES
     dispOS(&qs);
+    dispSysName(&qs);
     dispCPUName(&qs);
     dispCPUCores(&qs);
     maxCPUClock(&qs);
     dispGPUName(&qs);
-    
-
+    dispGPUDriverVersion(&qs);
+    dispRefresh(&qs);
 
     // cleanup
     pSvc->lpVtbl->Release(pSvc);
