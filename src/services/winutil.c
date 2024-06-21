@@ -1,5 +1,5 @@
 #include "winutil.h"
-
+#include <wchar.h>
 
 void dispOS(Qstruk* qs) {
     enum QType qt = STRV;
@@ -67,4 +67,19 @@ void dispSysName(Qstruk* qs) {
     wchar_t w[256];
     wcsncpy(w, query(L"SELECT SystemName FROM Win32_VideoController", field, qt, qs), 255);
     printf("System: %ls\n", w);
+}
+
+void dispMemory(Qstruk* qs) {
+    enum QType qt = STRV;
+    wchar_t* field = L"FreePhysicalMemory";
+    wchar_t w[256];
+    wchar_t x[256];
+    float GBCONV = 9.5367431640625E-7f;
+    
+    wcsncpy(w, query(L"SELECT FreePhysicalMemory FROM Win32_OperatingSystem", field, qt, qs), 255);
+    field = L"TotalVisibleMemorySize";
+    wcsncpy(x, query(L"SELECT TotalVisibleMemorySize FROM Win32_OperatingSystem", field, qt, qs), 255);
+    float inuse = ((float)_wtoi(w)) * GBCONV;
+    float max = ((float)_wtoi(x)) * GBCONV;
+    printf("Memory Usage: %.2fGB/%.2fGB", max - inuse, max);
 }

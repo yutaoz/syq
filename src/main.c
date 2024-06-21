@@ -114,6 +114,7 @@ int main() {
     dispGPUName(&qs);
     dispGPUDriverVersion(&qs);
     dispRefresh(&qs);
+    dispMemory(&qs);
 
     // cleanup
     pSvc->lpVtbl->Release(pSvc);

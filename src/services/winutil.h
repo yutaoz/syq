@@ -18,4 +18,6 @@ void dispRefresh(Qstruk* qs);
 
 void dispSysName(Qstruk* qs);
 
+void dispMemory(Qstruk* qs);
+
 #endif
