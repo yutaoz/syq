@@ -104,15 +104,20 @@ int main() {
         .pEnumerator = pEnumerator
     };
 
+    printf("\n"); // new line to make formatting cleaner
 
     // DISPLAY SERVICES
     dispOS(&qs);
+    dispSysName(&qs);
     dispCPUName(&qs);
     dispCPUCores(&qs);
     maxCPUClock(&qs);
     dispGPUName(&qs);
-    
+    dispGPUDriverVersion(&qs);
+    dispRefresh(&qs);
+    dispMemory(&qs);
 
+    printf("\n");
 
     // cleanup
     pSvc->lpVtbl->Release(pSvc);

@@ -12,4 +12,12 @@ void maxCPUClock(Qstruk* qs);
 
 void dispGPUName(Qstruk* qs);
 
+void dispGPUDriverVersion(Qstruk* qs);
+
+void dispRefresh(Qstruk* qs);
+
+void dispSysName(Qstruk* qs);
+
+void dispMemory(Qstruk* qs);
+
 #endif
